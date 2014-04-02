@@ -1,7 +1,8 @@
 BIN = harmless
+RM = /bin/rm
 
-CC = gcc
-CFLAGS = -O3 -Wall
+CC ?= gcc
+CFLAGS ?= -O3 -Wall
 
 ${BIN} : pipe.o ucci.o position.o genmoves.o movesort.o \
 	evaluate.o search.o hash.o openbook.o harmless.o
@@ -21,4 +22,4 @@ harmless.o : base.h position.h search.h ucci.h
 
 .PHONY : clean
 clean :
-	${RM} ${BIN} *.o
+	${RM} -f ${BIN} *.o
