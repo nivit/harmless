@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include <malloc.h>
+#include <stdlib.h>
 #include "pipe.h"
 #include "ucci.h"
 
@@ -57,7 +57,7 @@ ucci_comm_enum boot_line()
     open_pipe();
 
     while (!line_input(line_str)) {
-        idle(1);
+        idle();
     }
 
     if (strcmp(line_str, "ucci") == 0) {
@@ -74,7 +74,7 @@ ucci_comm_enum idle_line(ucci_comm_struct *ucs_command)
     ucci_comm_enum uce_return_value = UCCI_COMM_NONE;
 
     while (!line_input(command_line_str)) {
-        idle(1);
+        idle();
     }
 
     line_str = command_line_str;
