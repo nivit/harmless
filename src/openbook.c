@@ -88,9 +88,11 @@ move read_openbook()
     move *pbook_move;
     int temp_value[MAX_BOOK_MOVE];
 
+#if 0
     if ((int)move_str) {
         /* do nothing */
     }
+#endif
     
     hash_temp = hash_table[zobrist_key & hash_mask];
 
